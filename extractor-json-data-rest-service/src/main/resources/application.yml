@@ -1,0 +1,43 @@
+server:
+    port: 8040
+    ssl:
+       key-store: /** Rute of cacert **/
+       key-store-password: /** Password of cacert **/ 
+       key-password: /** Password of cacert **/ 
+       key-store-type: JKS
+       key-alias: jks
+       enabled: false
+eureka:
+ client:
+    service-url:
+        defaultZone: /** Url of discovery eureka server **/
+    registerWithEureka: false
+    fetchRegistry: true
+security:
+    oauth2:
+     clientId:
+     discoveryURL:
+     disableCertificationVerification: true
+     hostNameVerifier: ALLOW_ALL_HOSTNAME_VERIFIER
+databaseConfiguration:
+    datasource:
+        username: EXTRACTORSERVICE
+        password: EXTRACTORSERVICE
+        url: jdbc:oracle:thin:@localhost:1521/XE
+        default_schema: EXTRACTORSERVICE
+        driverClassName: oracle.jdbc.driver.OracleDriver
+        type: com.zaxxer.hikari.HikariDataSource
+    jpa:
+        ddlAuto: none
+    hikari:
+        maxPoolSize: 10
+        connectionTimeout: 60000
+        maxLifeTime: 300000
+        idleTimeout: 300000
+configurations:
+    JSON_NAME:
+          paths:
+            common: /** Path name where the variable to be extracted will be searched **/
+          variables:
+            common: /** Name of variable searched **/
+          limitSearch: 2

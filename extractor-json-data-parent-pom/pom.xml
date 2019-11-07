@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.afterlife.zwindblade</groupId>
+	<artifactId>extractor-json-data-parent-pom</artifactId>
+	<version>1.0.0.RC</version>
+	<name>Extractor JSON Data Backbone - Parent POM</name>
+	<packaging>pom</packaging>
+	<description>Microservice extractor of information of JSONs</description>
+
+	<properties>
+		<!-- Dependencies versions -->
+		<java.version>1.8</java.version>
+		<jackson.version>2.10.0</jackson.version>
+		<springboot.version>2.1.9.RELEASE</springboot.version>
+		<slf4j.version>1.7.13</slf4j.version>
+		<dom4j.version>1.6.1</dom4j.version>
+		<eureka.version>1.4.10</eureka.version>
+		<spring-cloud-config.version>1.1.1.RELEASE</spring-cloud-config.version>
+	</properties>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<!--  Extractor Json Data MicroService Inner Dependencies -->
+			<dependency>
+				<groupId>com.afterlife.zwindblade</groupId>
+				<artifactId>extractor-json-data-domain</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.afterlife.zwindblade</groupId>
+				<artifactId>extractor-json-data-persistence</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.afterlife.zwindblade</groupId>
+				<artifactId>extractor-json-data-rest-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.afterlife.zwindblade</groupId>
+				<artifactId>extractor-json-data-security</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.afterlife.zwindblade</groupId>
+				<artifactId>extractor-json-data-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<!-- Spring boot dependencies -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${springboot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>1.5.5.RELEASE</version>
+			</dependency>
+			<!-- Discovery eureka dependencies -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-netflix-dependencies</artifactId>
+				<version>${spring-cloud-config.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-config</artifactId>
+				<version>${spring-cloud-config.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.netflix.eureka</groupId>
+				<artifactId>eureka-client</artifactId>
+				<version>${eureka.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.netflix.eureka</groupId>
+				<artifactId>eureka-core</artifactId>
+				<version>${eureka.version}</version>
+			</dependency>
+			<!-- Jackson dependencies -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<!-- Log dependencies -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>${dom4j.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

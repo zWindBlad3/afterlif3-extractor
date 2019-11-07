@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.afterlife.zwindblade</groupId>
+	<artifactId>extractor-json-build-pom</artifactId>
+	<version>1.0.0.RC</version>
+	<name>Extractor JSON Data Backbone</name>
+	<packaging>pom</packaging>
+	<description>Microservice extractor of information of JSONs</description>
+
+	<profiles> 
+		<profile>
+			<id>build</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>build</name>
+				</property>
+			</activation>
+			<modules>
+				<module>extractor-json-data-parent-pom</module>
+				<module>extractor-json-data-domain</module>
+				<module>extractor-json-data-persistence</module>
+				<module>extractor-json-data-security</module>
+				<module>extractor-json-data-service</module>
+				<module>extractor-json-data-rest-service</module>
+			</modules>
+		</profile>
+		<profile>
+				<id>sonar</id>
+				<activation>
+					<activeByDefault>false</activeByDefault>
+					<property>
+						<name>build</name>
+					</property>
+				</activation>
+				<modules>
+					<module>extractor-json-data-domain</module>
+					<module>extractor-json-data-persistence</module>
+					<module>extractor-json-data-security</module>
+					<module>extractor-json-data-service</module>
+					<module>extractor-json-data-rest-service</module>
+				</modules>
+			</profile>
+	</profiles>
+</project>
